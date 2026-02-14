@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ==================== META TAGS FOR PREVIEW ==================== -->
+    <!-- Meta Tags for Preview -->
     <title>Premium Apps Hub - Download Free Premium Apps</title>
     <meta name="description" content="Download premium modified apps for free. YouTube Premium, Netflix Premium, Spotify Premium and more. No subscription required.">
     
@@ -12,19 +12,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://premiumappshub.com">
     <meta property="og:title" content="Premium Apps Hub - 100% Free Premium Apps">
-    <meta property="og:description" content="Download all premium apps for free. YouTube, Netflix, Spotify, ChatGPT and 50+ more apps with all features unlocked.">
+    <meta property="og:description" content="Download all premium apps for free. YouTube, Netflix, Spotify, ChatGPT and more apps with all features unlocked.">
     <meta property="og:image" content="https://i.ibb.co.com/your-image-link/preview-banner.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Premium Apps Hub - Free Premium Apps">
-    <meta name="twitter:description" content="Download 50+ premium apps free. No subscription, no payment.">
-    <meta name="twitter:image" content="https://i.ibb.co.com/your-image-link/preview-banner.jpg">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://i.ibb.co.com/your-image-link/favicon.png">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -33,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* ==================== RESET & VARIABLES ==================== */
+        /* ==================== CSS RESET ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -50,9 +41,6 @@
             --light: #f8fafc;
             --gray: #64748b;
             --border: #e2e8f0;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
         body {
@@ -60,7 +48,6 @@
             background: linear-gradient(135deg, #667eea0a 0%, #764ba20a 100%), #f8fafc;
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         .container {
@@ -71,24 +58,8 @@
 
         /* ==================== ANIMATIONS ==================== */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ==================== HEADER ==================== */
@@ -100,7 +71,6 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
         }
 
         .header-content {
@@ -118,19 +88,13 @@
         .logo-icon {
             width: 48px;
             height: 48px;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.8rem;
-            transform: rotate(0deg);
-            transition: transform 0.3s;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(10deg) scale(1.1);
         }
 
         .logo-text h1 {
@@ -139,13 +103,6 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 0.85rem;
-            color: var(--gray);
-            font-weight: 400;
         }
 
         .nav ul {
@@ -161,52 +118,24 @@
             padding: 8px 16px;
             border-radius: 30px;
             transition: all 0.3s;
-            background: transparent;
         }
 
         .nav a:hover {
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            transform: translateY(-2px);
         }
 
         /* ==================== HERO SECTION ==================== */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
-            animation: float 10s ease-in-out infinite;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea20, #764ba220);
-            color: var(--primary);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            backdrop-filter: blur(10px);
         }
 
         .hero h2 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: linear-gradient(135deg, #1e293b, #475569);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -216,38 +145,13 @@
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
-            animation: pulse 3s ease-in-out infinite;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
             max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.9rem;
+            margin: 0 auto 30px;
         }
 
         /* ==================== AD BANNER ==================== */
@@ -258,12 +162,6 @@
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
             margin: 40px auto;
             max-width: 900px;
-            border: 1px solid var(--border);
-            transition: transform 0.3s;
-        }
-
-        .ad-banner:hover {
-            transform: translateY(-5px);
         }
 
         .ad-header {
@@ -278,98 +176,53 @@
 
         .ad-content {
             padding: 30px;
-            min-height: 180px;
+            min-height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
         }
 
         /* ==================== APPS SECTION ==================== */
-        .section-header {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
-
         .section-title {
-            font-size: 2.5rem;
+            text-align: center;
+            font-size: 2.2rem;
             font-weight: 700;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #1e293b, #475569);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-subtitle {
-            color: var(--gray);
-            font-size: 1.1rem;
+            margin: 50px 0 30px;
         }
 
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
         }
 
         .app-card {
             background: white;
             border-radius: 24px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
+            transition: all 0.3s;
             animation: fadeInUp 0.6s ease-out forwards;
             opacity: 0;
         }
 
-        .app-card:nth-child(1) { animation-delay: 0.1s; }
-        .app-card:nth-child(2) { animation-delay: 0.2s; }
-        .app-card:nth-child(3) { animation-delay: 0.3s; }
-        .app-card:nth-child(4) { animation-delay: 0.4s; }
-        .app-card:nth-child(5) { animation-delay: 0.5s; }
-        .app-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .app-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-
         .app-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             box-shadow: 0 30px 60px -10px rgba(102, 126, 234, 0.3);
         }
 
-        .app-card:hover::before {
-            transform: translateX(100%);
-        }
-
         .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 26px;
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 3rem;
+            margin: 0 auto 20px;
+            font-size: 2.5rem;
             color: white;
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-        }
-
-        .app-card:hover .app-icon {
-            transform: scale(1.1) rotate(5deg);
         }
 
         /* App Icon Gradients */
@@ -379,265 +232,42 @@
         .spotify { background: linear-gradient(135deg, #1db954, #4cdf7e); }
         .chatgpt { background: linear-gradient(135deg, #10a37f, #00b894); }
         .midjourney { background: linear-gradient(135deg, #f97316, #fb923c); }
-        .claude { background: linear-gradient(135deg, #6b46c1, #9f7aea); }
-        .dalle { background: linear-gradient(135deg, #dc2626, #ef4444); }
-        .copilot { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-        .bard { background: linear-gradient(135deg, #4285f4, #5a95f5); }
-        .perplexity { background: linear-gradient(135deg, #0891b2, #06b6d4); }
-        .poe { background: linear-gradient(135deg, #e11d48, #f43f5e); }
+        .capcut { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
+        .inshot { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
         .whatsapp { background: linear-gradient(135deg, #25d366, #5af78e); }
         .imo { background: linear-gradient(135deg, #00bfa5, #00e6c3); }
-        .inshot { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
-        .capcut { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
-        .terabox { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-        .moviebox { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
-        .photoshop { background: linear-gradient(135deg, #0891b2, #06b6d4); }
-        .lightroom { background: linear-gradient(135deg, #2563eb, #3b82f6); }
-        .canva { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
-        .picsart { background: linear-gradient(135deg, #9333ea, #a855f7); }
-        .office { background: linear-gradient(135deg, #d97706, #f59e0b); }
 
         .app-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--dark);
+            margin-bottom: 10px;
         }
 
         .app-card p {
             color: var(--gray);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
         }
 
         .install-btn {
             width: 100%;
-            padding: 16px;
+            padding: 14px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
-            border-radius: 16px;
+            border-radius: 12px;
             font-weight: 600;
-            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .install-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            gap: 8px;
         }
 
         .install-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px -10px rgba(102, 126, 234, 0.4);
-        }
-
-        .install-btn:hover::before {
-            left: 100%;
-        }
-
-        /* ==================== FEATURES SECTION ==================== */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 80px 0;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 24px;
-            text-align: center;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #667eea20, #764ba220);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .feature-card h4 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .feature-card p {
-            color: var(--gray);
-        }
-
-        /* ==================== CTA SECTION ==================== */
-        .cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 30px;
-            padding: 80px 40px;
-            margin: 80px 0;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: float 10s ease-in-out infinite;
-        }
-
-        .cta h3 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-btn {
-            background: white;
-            color: var(--primary);
-            padding: 16px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ==================== FOOTER ==================== */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 80px 0 30px;
-            margin-top: 100px;
-            border-radius: 40px 40px 0 0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-column h4 {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(102, 126, 234, 0.4);
         }
 
         /* ==================== AD OVERLAY ==================== */
@@ -652,99 +282,127 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            backdrop-filter: blur(10px);
         }
 
         .ad-modal {
             background: white;
-            border-radius: 30px;
+            border-radius: 24px;
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-            transform: scale(0.9);
-            animation: modalPop 0.4s forwards;
-        }
-
-        @keyframes modalPop {
-            to {
-                transform: scale(1);
-            }
         }
 
         .modal-header {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
         }
 
         .modal-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
         }
 
         .modal-content {
-            padding: 40px;
+            padding: 30px;
             text-align: center;
         }
 
         .countdown {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary);
-            margin: 30px 0;
-            padding: 20px;
+            color: #667eea;
+            margin: 20px 0;
+            padding: 15px;
             background: #f1f5f9;
-            border-radius: 20px;
+            border-radius: 15px;
             display: inline-block;
-            min-width: 120px;
+            min-width: 100px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
 
         .modal-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: rgba(255,255,255,0.2);
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: all 0.3s;
         }
 
-        .modal-close:hover {
-            background: rgba(255,255,255,0.3);
-            transform: rotate(90deg);
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
         }
 
-        /* ==================== RESPONSIVE ==================== */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
             }
-
+            
             .hero h2 {
-                font-size: 2.2rem;
-            }
-
-            .hero-stats {
-                gap: 30px;
-            }
-
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta {
-                padding: 60px 20px;
-            }
-
-            .cta h3 {
                 font-size: 2rem;
             }
         }
@@ -761,14 +419,12 @@
                     </div>
                     <div class="logo-text">
                         <h1>Premium Apps Hub</h1>
-                        <span>Download Free Premium Apps</span>
                     </div>
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#apps"><i class="fas fa-th"></i> Apps</a></li>
-                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-                        <li><a href="#footer"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="#apps">Apps</a></li>
+                        <li><a href="#footer">About</a></li>
                     </ul>
                 </nav>
             </div>
@@ -778,38 +434,19 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">
-                <i class="fas fa-crown" style="margin-right: 8px;"></i> 100% Free Premium Apps
-            </div>
             <h2>
                 <span>Premium Apps</span><br>
-                Completely Free For Everyone
+                Completely Free
             </h2>
-            <p>Download modified versions of your favorite apps with all premium features unlocked. No subscription, no payment, just free premium apps.</p>
-            
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Premium Apps</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100K+</div>
-                    <div class="stat-label">Happy Users</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Free Downloads</div>
-                </div>
-            </div>
+            <p>Download premium apps with all features unlocked. No subscription needed.</p>
 
-            <!-- Top Ad Banner -->
+            <!-- Top Ad -->
             <div class="ad-banner">
                 <div class="ad-header">
                     <i class="fas fa-ad"></i> Advertisement
                 </div>
-                <div class="ad-content" id="topAd">
-                    <!-- আপনার এড কোড এখানে বসান -->
-                    <p style="color: #64748b;">Advertisement Space - Your Ad Here</p>
+                <div class="ad-content">
+                    <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
                 </div>
             </div>
         </div>
@@ -818,75 +455,22 @@
     <!-- Apps Section -->
     <section id="apps">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Popular Premium Apps</h2>
-                <p class="section-subtitle">Most downloaded premium apps this week</p>
-            </div>
+            <h2 class="section-title">Premium Apps</h2>
             <div class="apps-grid" id="appsGrid"></div>
-
-            <!-- Middle Ad Banner -->
-            <div class="ad-banner">
-                <div class="ad-header">
-                    <i class="fas fa-star"></i> Sponsored
-                </div>
-                <div class="ad-content" id="middleAd">
-                    <!-- আপনার এড কোড এখানে বসান -->
-                    <p style="color: #64748b;">Advertisement Space - Your Ad Here</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Choose Us</h2>
-                <p class="section-subtitle">Best platform for premium apps</p>
+    <!-- Middle Ad -->
+    <div class="container">
+        <div class="ad-banner">
+            <div class="ad-header">
+                <i class="fas fa-star"></i> Sponsored
             </div>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>100% Safe</h4>
-                    <p>All apps are tested and verified. No viruses, no malware.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h4>Fast Downloads</h4>
-                    <p>High-speed servers for instant downloads.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h4>Regular Updates</h4>
-                    <p>Apps updated regularly with latest features.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h4>24/7 Support</h4>
-                    <p>Always here to help you with any issues.</p>
-                </div>
+            <div class="ad-content">
+                <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h3>Ready to Enjoy Premium Apps?</h3>
-            <p>Start downloading your favorite premium apps for free right now.</p>
-            <a href="#apps" class="cta-btn">
-                <i class="fas fa-download"></i> Browse All Apps
-            </a>
-        </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer class="footer" id="footer">
@@ -894,60 +478,52 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>Premium Apps Hub</h4>
-                    <p>Your trusted source for premium modified applications. All apps are tested and safe to use.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                    <p style="color: #94a3b8; font-size: 0.9rem;">Your trusted source for premium modified applications.</p>
                 </div>
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#apps"><i class="fas fa-arrow-right"></i> All Apps</a></li>
-                        <li><a href="#features"><i class="fas fa-arrow-right"></i> Features</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Privacy Policy</a></li>
-                        <li><a href="#"><i class="fas fa-arrow-right"></i> Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Popular Apps</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">YouTube Premium</a></li>
-                        <li><a href="#">Netflix Premium</a></li>
-                        <li><a href="#">Spotify Premium</a></li>
-                        <li><a href="#">ChatGPT Premium</a></li>
-                        <li><a href="#">CapCut Premium</a></li>
+                        <li><a href="#apps">All Apps</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Premium Apps Hub. All rights reserved. | Download free premium apps</p>
+                <p>&copy; 2024 Premium Apps Hub. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Bottom Ad -->
+    <div class="container">
+        <div class="ad-banner">
+            <div class="ad-header">
+                <i class="fas fa-bullhorn"></i> Featured
+            </div>
+            <div class="ad-content">
+                <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
+            </div>
+        </div>
+    </div>
 
     <!-- Ad Overlay -->
     <div class="ad-overlay" id="adOverlay">
         <div class="ad-modal">
             <div class="modal-header">
-                <h3><i class="fas fa-gift"></i> You're Awesome!</h3>
-                <p>Please wait while we prepare your download</p>
+                <h3>Please Wait</h3>
+                <p>Your download is being prepared</p>
             </div>
             <div class="modal-content">
                 <div id="loadingSection">
-                    <h4>Thank You for Supporting Us!</h4>
-                    <p>Your download will start in</p>
+                    <h4>Thank You!</h4>
                     <div class="countdown" id="countdown">5</div>
-                    <p style="color: #64748b;">Please wait while we redirect you to our partner</p>
+                    <p>Opening advertisement...</p>
                 </div>
                 <div id="downloadSection" style="display: none;">
                     <h4>✅ Download Ready!</h4>
-                    <p>Click below to download your app</p>
-                    <a href="#" class="install-btn" id="downloadLink" style="display: inline-flex; width: auto; padding: 16px 40px;">
+                    <button class="download-btn" id="downloadBtn">
                         <i class="fas fa-download"></i> Download Now
-                    </a>
+                    </button>
                 </div>
             </div>
             <button class="modal-close" id="closeAdBtn">×</button>
@@ -957,187 +533,63 @@
     <script>
         // ==================== APP CONFIGURATION ====================
         const APPS = [
-            // Video Streaming Apps
             {
                 id: 'youtube',
                 name: 'YouTube Premium',
                 icon: 'fab fa-youtube',
                 iconClass: 'youtube',
                 description: 'Ad-free videos, background play, offline downloads',
-                downloadLink: 'https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880'
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
+            },
+            {
+                id: 'telegram',
+                name: 'Telegram Premium',
+                icon: 'fab fa-telegram',
+                iconClass: 'telegram',
+                description: '4GB file upload, faster downloads',
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
             },
             {
                 id: 'netflix',
                 name: 'Netflix Premium',
                 icon: 'fas fa-film',
                 iconClass: 'netflix',
-                description: '4K streaming, all content unlocked, multiple screens',
-                downloadLink: 'YOUR_NETFLIX_LINK'
+                description: '4K streaming, all content unlocked',
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
             },
-            {
-                id: 'moviebox',
-                name: 'MovieBox Pro',
-                icon: 'fas fa-play-circle',
-                iconClass: 'moviebox',
-                description: 'Free movies & shows, no ads, premium quality',
-                downloadLink: 'YOUR_MOVIEBOX_LINK'
-            },
-            
-            // Music Apps
             {
                 id: 'spotify',
                 name: 'Spotify Premium',
                 icon: 'fab fa-spotify',
                 iconClass: 'spotify',
-                description: 'Ad-free music, unlimited skips, offline listening',
-                downloadLink: 'YOUR_SPOTIFY_LINK'
+                description: 'Ad-free music, unlimited skips',
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
             },
-            
-            // AI Apps
             {
                 id: 'chatgpt',
                 name: 'ChatGPT Premium',
                 icon: 'fas fa-robot',
                 iconClass: 'chatgpt',
-                description: 'GPT-4 access, faster responses, priority support',
-                downloadLink: 'YOUR_CHATGPT_LINK'
+                description: 'GPT-4 access, faster responses',
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
             },
-            {
-                id: 'midjourney',
-                name: 'Midjourney Pro',
-                icon: 'fas fa-paint-brush',
-                iconClass: 'midjourney',
-                description: 'AI image generation, unlimited creations, fast mode',
-                downloadLink: 'YOUR_MIDJOURNEY_LINK'
-            },
-            {
-                id: 'claude',
-                name: 'Claude AI Pro',
-                icon: 'fas fa-brain',
-                iconClass: 'claude',
-                description: 'Advanced AI assistant, 100K context, file upload',
-                downloadLink: 'YOUR_CLAUDE_LINK'
-            },
-            {
-                id: 'perplexity',
-                name: 'Perplexity Pro',
-                icon: 'fas fa-search',
-                iconClass: 'perplexity',
-                description: 'AI search engine, unlimited searches, file upload',
-                downloadLink: 'YOUR_PERPLEXITY_LINK'
-            },
-            {
-                id: 'copilot',
-                name: 'GitHub Copilot',
-                icon: 'fas fa-code',
-                iconClass: 'copilot',
-                description: 'AI pair programmer, code completion',
-                downloadLink: 'YOUR_COPILOT_LINK'
-            },
-            
-            // Messaging Apps
-            {
-                id: 'telegram',
-                name: 'Telegram Premium',
-                icon: 'fab fa-telegram',
-                iconClass: 'telegram',
-                description: '4GB file upload, faster downloads, exclusive features',
-                downloadLink: 'YOUR_TELEGRAM_LINK'
-            },
-            {
-                id: 'whatsapp',
-                name: 'WhatsApp Plus',
-                icon: 'fab fa-whatsapp',
-                iconClass: 'whatsapp',
-                description: 'Custom themes, privacy options, increased limits',
-                downloadLink: 'YOUR_WHATSAPP_LINK'
-            },
-            {
-                id: 'imo',
-                name: 'IMO Premium',
-                icon: 'fas fa-video',
-                iconClass: 'imo',
-                description: 'HD video calls, no ads, exclusive stickers',
-                downloadLink: 'YOUR_IMO_LINK'
-            },
-            
-            // Video Editing Apps
             {
                 id: 'capcut',
                 name: 'CapCut Premium',
                 icon: 'fas fa-film',
                 iconClass: 'capcut',
-                description: 'Advanced video editor, no watermark, 4K export',
-                downloadLink: 'YOUR_CAPCUT_LINK'
+                description: 'No watermark, 4K export',
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
             },
             {
                 id: 'inshot',
                 name: 'InShot Pro',
                 icon: 'fas fa-cut',
                 iconClass: 'inshot',
-                description: 'Professional video editor, no watermark',
-                downloadLink: 'YOUR_INSHOT_LINK'
-            },
-            
-            // Photo Editing Apps
-            {
-                id: 'lightroom',
-                name: 'Lightroom Premium',
-                icon: 'fas fa-camera-retro',
-                iconClass: 'lightroom',
-                description: 'Professional photo editing, all premium presets',
-                downloadLink: 'YOUR_LIGHTROOM_LINK'
-            },
-            {
-                id: 'photoshop',
-                name: 'Photoshop Express',
-                icon: 'fas fa-edit',
-                iconClass: 'photoshop',
-                description: 'Photo editing, all premium features unlocked',
-                downloadLink: 'YOUR_PHOTOSHOP_LINK'
-            },
-            {
-                id: 'picsart',
-                name: 'Picsart Gold',
-                icon: 'fas fa-camera',
-                iconClass: 'picsart',
-                description: 'Photo editor, all premium tools & effects',
-                downloadLink: 'YOUR_PICSART_LINK'
-            },
-            {
-                id: 'canva',
-                name: 'Canva Pro',
-                icon: 'fas fa-paint-brush',
-                iconClass: 'canva',
-                description: 'Graphic design, all premium templates',
-                downloadLink: 'YOUR_CANVA_LINK'
-            },
-            
-            // Cloud Storage
-            {
-                id: 'terabox',
-                name: 'Terabox Premium',
-                icon: 'fas fa-cloud',
-                iconClass: 'terabox',
-                description: '1TB cloud storage, high-speed downloads',
-                downloadLink: 'YOUR_TERABOX_LINK'
-            },
-            
-            // Office Apps
-            {
-                id: 'office',
-                name: 'Microsoft Office',
-                icon: 'fas fa-file-word',
-                iconClass: 'office',
-                description: 'Complete office suite, all premium features',
-                downloadLink: 'YOUR_OFFICE_LINK'
+                description: 'Professional video editor',
+                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
             }
         ];
-
-        // ==================== SETTINGS ====================
-        const SETTINGS = {
-            adRedirectLink: "https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880" // আপনার AdsTerar লিংক বসান
-        };
 
         // ==================== RENDER APPS ====================
         function renderApps() {
@@ -1153,7 +605,7 @@
                         </div>
                         <h3>${app.name}</h3>
                         <p>${app.description}</p>
-                        <button class="install-btn" data-app="${app.id}">
+                        <button class="install-btn" onclick="openAdOverlay('${app.id}')">
                             <i class="fas fa-download"></i> Install Now
                         </button>
                     </div>
@@ -1162,104 +614,77 @@
             grid.innerHTML = html;
         }
 
-        // ==================== AD OVERLAY ====================
-        function setupAdOverlay() {
-            const overlay = document.getElementById('adOverlay');
-            const closeBtn = document.getElementById('closeAdBtn');
-            const countdownEl = document.getElementById('countdown');
-            const loadingSection = document.getElementById('loadingSection');
-            const downloadSection = document.getElementById('downloadSection');
-            const downloadLink = document.getElementById('downloadLink');
-            const installButtons = document.querySelectorAll('.install-btn');
+        // ==================== AD OVERLAY FUNCTIONS ====================
+        let currentApp = null;
+        let timer = null;
+        let seconds = 5;
 
-            let currentApp = null;
-            let timer = null;
-            let seconds = 5;
+        function openAdOverlay(appId) {
+            currentApp = APPS.find(a => a.id === appId);
+            if (!currentApp) return;
 
-            installButtons.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const appId = this.dataset.app;
-                    currentApp = APPS.find(a => a.id === appId);
-                    
-                    if (!currentApp) return;
-
-                    seconds = 5;
-                    countdownEl.textContent = seconds;
-                    loadingSection.style.display = 'block';
-                    downloadSection.style.display = 'none';
-                    overlay.style.display = 'flex';
-                    
-                    if (SETTINGS.adRedirectLink && SETTINGS.adRedirectLink !== 'https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880') {
-                        window.open(SETTINGS.adRedirectLink, '_blank');
-                    }
-                    
-                    startCountdown();
-                });
-            });
-
-            function startCountdown() {
-                if (timer) clearInterval(timer);
-                
-                timer = setInterval(() => {
-                    seconds--;
-                    countdownEl.textContent = seconds;
-                    
-                    if (seconds <= 0) {
-                        clearInterval(timer);
-                        showDownload();
-                    }
-                }, 1000);
-            }
-
-            function showDownload() {
-                loadingSection.style.display = 'none';
-                downloadSection.style.display = 'block';
-                
-                if (currentApp && currentApp.downloadLink && !currentApp.downloadLink.includes('YOUR_')) {
-                    downloadLink.href = currentApp.downloadLink;
-                    downloadLink.innerHTML = '<i class="fas fa-download"></i> Download ' + currentApp.name;
-                } else {
-                    downloadLink.style.pointerEvents = 'none';
-                    downloadLink.style.opacity = '0.5';
-                    downloadLink.innerHTML = '<i class="fas fa-download"></i> Link Coming Soon';
-                }
-            }
-
-            closeBtn.addEventListener('click', () => {
-                overlay.style.display = 'none';
-                if (timer) clearInterval(timer);
-            });
-
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.style.display = 'none';
-                    if (timer) clearInterval(timer);
-                }
-            });
+            // Reset
+            seconds = 5;
+            document.getElementById('countdown').textContent = seconds;
+            document.getElementById('loadingSection').style.display = 'block';
+            document.getElementById('downloadSection').style.display = 'none';
+            
+            // Show overlay
+            document.getElementById('adOverlay').style.display = 'flex';
+            
+            // Open Ads link in new tab
+            window.open('https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880', '_blank');
+            
+            // Start countdown
+            startCountdown();
         }
 
-        // ==================== SMOOTH SCROLL ====================
-        function setupSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
+        function startCountdown() {
+            if (timer) clearInterval(timer);
+            
+            timer = setInterval(() => {
+                seconds--;
+                document.getElementById('countdown').textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    showDownloadButton();
+                }
+            }, 1000);
+        }
+
+        function showDownloadButton() {
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('downloadSection').style.display = 'block';
+            
+            const downloadBtn = document.getElementById('downloadBtn');
+            if (currentApp && currentApp.downloadLink) {
+                downloadBtn.onclick = function() {
+                    window.location.href = currentApp.downloadLink;
+                };
+            }
+        }
+
+        function closeOverlay() {
+            document.getElementById('adOverlay').style.display = 'none';
+            if (timer) clearInterval(timer);
         }
 
         // ==================== INITIALIZE ====================
         document.addEventListener('DOMContentLoaded', function() {
             renderApps();
-            setupAdOverlay();
-            setupSmoothScroll();
+            
+            // Close button
+            document.getElementById('closeAdBtn').onclick = closeOverlay;
+            
+            // Click outside to close
+            document.getElementById('adOverlay').onclick = function(e) {
+                if (e.target === this) closeOverlay();
+            };
         });
     </script>
+
+
     <script src="https://pl28716588.effectivegatecpm.com/bd/d2/f6/bdd2f6aa9b2871d53171c67ed6783b32.js"></script>
-    
 </body>
 </html>
