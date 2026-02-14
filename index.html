@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Apps Hub | Download Premium Apps Free</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #ef4444;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --gradient-success: linear-gradient(135deg, #10b981, #34d399);
+            --gradient-danger: linear-gradient(135deg, #ef4444, #f87171);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Fixed Header - FIXED SCROLLING ISSUE */
+        .main-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 25px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .main-header.hidden {
+            transform: translateY(-100%);
+        }
+        
+        /* Add padding to body to account for fixed header */
+        body {
+            padding-top: 100px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+        
+        .logo-icon {
+            font-size: 2.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+        
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        /* Ad Banner */
+        .ad-banner {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .ad-banner:hover {
+            transform: translateY(-5px);
+        }
+        
+        .ad-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 18px 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+        }
+        
+        .ad-content {
+            padding: 30px;
+            text-align: center;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Apps Grid */
+        .apps-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .app-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .app-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .app-card:hover .app-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .youtube { background: linear-gradient(135deg, #FF0000, #FF6B6B); }
+        .telegram { background: linear-gradient(135deg, #0088cc, #00bfff); }
+        .imo { background: linear-gradient(135deg, #00BFA5, #00e6c3); }
+        .whatsapp { background: linear-gradient(135deg, #25D366, #5af78e); }
+        .spotify { background: linear-gradient(135deg, #1DB954, #4cdf7e); }
+        .netflix { background: linear-gradient(135deg, #E50914, #ff4d4d); }
+        
+        .app-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .app-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .install-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .install-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .install-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+        }
+        
+        .install-btn:hover::before {
+            left: 100%;
+        }
+        /* How It Works */
+        .how-it-works {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 60px 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 20px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
+        }
+        
+        .step-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Ad Overlay */
+        .ad-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 24, 39, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ad-modal {
+            background: var(--card-bg);
+            border-radius: 30px;
+            width: 90%;
+            max-width: 500px;
+            overflow: hidden;
+            animation: modalSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @keyframes modalSlide {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        
+        .modal-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .modal-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+        
+        .modal-content {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .modal-content h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .modal-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .countdown {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+            display: inline-block;
+            min-width: 220px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--gradient-success);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(90deg);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+            margin-top: 80px;
+            border-radius: 40px 40px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        .footer-column p {
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+            border: none;
+        }
+        
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            body {
+                padding-top: 140px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 25px;
+            }
+            
+            .how-it-works {
+                padding: 40px 25px;
+            }
+            
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ad-modal {
+                width: 95%;
+                max-width: 95%;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .main-header {
+                padding: 15px 0;
+            }
+            
+            body {
+                padding-top: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-card {
+                padding: 25px 20px;
+            }
+            
+            .install-btn {
+                padding: 14px 25px;
+                font-size: 0.95rem;
+            }
+            
+            .main-nav ul {
+                gap: 10px;
+            }
+            
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            body {
+                padding-top: 130px;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success Animation */
+        .success-check {
+            color: var(--secondary);
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: bounce 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient-primary);
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Fixed Header -->
+    <header class="main-header" id="mainHeader">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Premium Apps Hub</h1>
+                        <p>Unlock Premium Features For Free</p>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#apps" class="nav-link"><i class="fas fa-th"></i> Apps</a></li>
+                        <li><a href="#how-it-works" class="nav-link"><i class="fas fa-play-circle"></i> How It Works</a></li>
+                        <li><a href="#footer" class="nav-link"><i class="fas fa-info-circle"></i> About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Unlock Premium Apps Completely Free</h1>
+            <p class="hero-subtitle">Download modified versions of your favorite apps with all premium features unlocked. No subscriptions, no root required, completely safe to use with regular updates.</p>
+            
+            <!-- Top Ad Banner -->
+            <div class="ad-banner">
+                <div class="ad-header">
+                    <i class="fas fa-ad"></i>
+                    Sponsored Advertisement
+                </div>
+                <div class="ad-content">
+                    <script>
+                        atOptions = {
+                            'key' : 'c569321d7ca0b682d40eee6f24f507ea',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/c569321d7ca0b682d40eee6f24f507ea/invoke.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps-section" id="apps">
+        <div class="container">
+            <h2 class="section-title">Premium Applications</h2>
+            
+            <div class="apps-grid">
+                <!-- YouTube Premium -->
+                <div class="app-card">
+                    <div class="app-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>YouTube Premium</h3>
+                    <p>Ad-free videos, background play, offline downloads, and all premium features unlocked.</p>
+                    <button class="install-btn" data-app="youtube">
+                        <i class="fas fa-download"></i> Install Now
+                    </button>
+                </div>
+                
+                <!-- Telegram Premium -->
+                <div class="app-card">
+                    <div class="app-icon telegram">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h3>Telegram Premium</h3>
+                    <p>Increased limits, faster downloads, exclusive stickers, and premium features.</p>
+                    <button class="install-btn" data-app="telegram">
+                        <i class="fas fa-download"></i> Install Now
+                    </button>
+                </div>
+                
+                <!-- IMO Premium -->
+                <div class="app-card">
+                    <div class="app-icon imo">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>IMO Premium</h3>
+                    <p>HD video calls, unlimited features, no ads, exclusive stickers and themes.</p>
+                    <button class="install-btn" data-app="imo">
+                        <i class="fas fa-download"></i> Install Now
+                    </button>
+                </div>
+                
+                <!-- WhatsApp Plus -->
+                <div class="app-card">
+                    <div class="app-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Plus</h3>
+                    <p>Custom themes, enhanced privacy, increased limits, and advanced features.</p>
+                    <button class="install-btn" data-app="whatsapp">
+                        <i class="fas fa-download"></i> Install Now
+                    </button>
+                </div>
+                
+                <!-- Spotify Premium -->
+                <div class="app-card">
+                    <div class="app-icon spotify">
+                        <i class="fab fa-spotify"></i>
+                    </div>
+                    <h3>Spotify Premium</h3>
+                    <p>Ad-free music, unlimited skips, offline listening, and highest quality audio.</p>
+                    <button class="install-btn" data-app="spotify">
+                        <i class="fas fa-download"></i> Install Now
+                    </button>
+                </div>
+                
+                <!-- Netflix Premium -->
+                <div class="app-card">
+                    <div class="app-icon netflix">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Netflix Premium</h3>
+                    <p>All content unlocked, 4K streaming, multiple screens, no subscription required.</p>
+                    <button class="install-btn" data-app="netflix">
+                        <i class="fas fa-download"></i> Install Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Middle Ad Banner -->
+            <div class="ad-banner">
+                <div class="ad-header">
+                    <i class="fas fa-star"></i>
+                    Premium Partner Advertisement
+                </div>
+                <div class="ad-content">
+                    <script>
+                        atOptions = {
+                            'key' : 'd1fca639ffc726c2eee1d379144af14f',
+                            'format' : 'iframe',
+                            'height' : 300,
+                            'width' : 160,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/d1fca639ffc726c2eee1d379144af14f/invoke.js"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Select App</h4>
+                    <p>Choose your desired premium app from our verified collection</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Watch Ad</h4>
+                    <p>Support us by viewing a short advertisement from our partners</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Download</h4>
+                    <p>Get direct download link after ad completion</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Enjoy Premium</h4>
+                    <p>Install and enjoy all premium features completely free</p>
+                </div>
+            </div>
+            
+            <!-- Bottom Ad Banner -->
+            <div class="ad-banner">
+                <div class="ad-header">
+                    <i class="fas fa-bullhorn"></i>
+                    Featured Advertisement
+                </div>
+                <div class="ad-content">
+                    <script async="async" data-cfasync="false" src="https://pl28651305.effectivegatecpm.com/d72598bcbc277fa3082d309cd1653e40/invoke.js"></script>
+                    <div id="container-d72598bcbc277fa3082d309cd1653e40"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Premium Apps Hub</h4>
+                    <p>We provide safe, tested, and regularly updated modified versions of popular applications with all premium features unlocked.</p>
+                    <p><i class="fas fa-shield-alt"></i> 100% Virus Free</p>
+                    <p><i class="fas fa-sync-alt"></i> Regular Updates</p>
+                    <p><i class="fas fa-headset"></i> 24/7 Support</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#apps"><i class="fas fa-arrow-right"></i> All Applications</a></li>
+                        <li><a href="#how-it-works"><i class="fas fa-arrow-right"></i> How It Works</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Safety Guidelines</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Request App</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Contact Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal & Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premium Apps Hub. All rights reserved. | This platform is for educational purposes only.</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">All trademarks and app names are property of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ad Overlay Modal -->
+    <div class="ad-overlay" id="adOverlay">
+        <div class="ad-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-ad"></i> Supporting Our Platform</h3>
+                <p>Please wait while we redirect you to our partner</p>
+            </div>
+            <div class="modal-content">
+                <div id="loadingSection">
+                    <h4>Thank You for Your Support!</h4>
+                    <p>By watching this advertisement, you help us maintain this service and keep all premium apps free for everyone.</p>
+                    
+                    <div class="countdown" id="countdown">Starting in 5 seconds...</div>
+                    
+                    <p><i class="fas fa-info-circle"></i> You'll be redirected to our partner advertisement</p>
+                </div>
+                
+                <div id="downloadSection" style="display: none;">
+                    <div class="success-check">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Download Ready!</h4>
+                    <p>Your download will start automatically in a few seconds...</p>
+                    <a href="#" class="download-btn" id="downloadLink">
+                        <i class="fas fa-download"></i> <span id="downloadText">Download App</span>
+                    </a>
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gray);">
+                        If download doesn't start, click the button above
+                    </p>
+                </div>
+            </div>
+            <button class="modal-close" id="closeAdBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // CONFIGURATION - আপনার লিংকগুলো এখানে বসাবেন
+        // ============================================
+        
+        // AdsTerar Redirect Link
+        const ADSTERAR_REDIRECT_LINK = "https://www.effectivegatecpm.com/zc0ey9mg?key=269cb02b92f87474e3cf1c64099acbef";
+        
+        // App Download Links (Direct Download Links)
+        const appDownloadLinks = {
+            youtube: "https://limewire.com/d/2WUBG#qJohZgoVDh",
+            telegram: "YOUR_TELEGRAM_PREMIUM_DOWNLOAD_LINK",
+            imo: "YOUR_IMO_PREMIUM_DOWNLOAD_LINK",
+            whatsapp: "YOUR_WHATSAPP_PLUS_DOWNLOAD_LINK",
+            spotify: "YOUR_SPOTIFY_PREMIUM_DOWNLOAD_LINK",
+            netflix: "https://limewire.com/d/2WUBG#qJohZgoVDh"
+        };
+        
+        // App names for display
+        const appNames = {
+            youtube: 'YouTube Premium',
+            telegram: 'Telegram Premium',
+            imo: 'IMO Premium',
+            whatsapp: 'WhatsApp Plus',
+            spotify: 'Spotify Premium',
+            netflix: 'Netflix Premium'
+        };
+        
+        // ============================================
+        // FIXED SCROLLING SYSTEM
+        // ============================================
+        
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Premium Apps Hub initialized');
+            
+            // Get DOM elements
+            const mainHeader = document.getElementById('mainHeader');
+            const scrollTopBtn = document.getElementById('scrollTop');
+            const scrollProgress = document.getElementById('scrollProgress');
+            const adOverlay = document.getElementById('adOverlay');
+            const closeAdBtn = document.getElementById('closeAdBtn');
+            const countdownEl = document.getElementById('countdown');
+            const downloadSection = document.getElementById('downloadSection');
+            const loadingSection = document.getElementById('loadingSection');
+            const downloadLink = document.getElementById('downloadLink');
+            const downloadText = document.getElementById('downloadText');
+            const installButtons = document.querySelectorAll('.install-btn');
+            
+            // State variables
+            let currentApp = '';
+            let countdownTimer;
+            let secondsLeft = 5;
+            let adShown = false;
+            let lastScrollTop = 0;
+            
+            // ============================================
+            // FIXED SCROLLING FUNCTIONALITY
+            // ============================================
+            
+            // Handle header show/hide on scroll
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Calculate scroll progress
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (scrollTop / windowHeight) * 100;
+                scrollProgress.style.width = scrolled + '%';
+                // Show/hide scroll to top button
+                if (scrollTop > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+                
+                // Handle header visibility
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down - hide header
+                    mainHeader.classList.add('hidden');
+                } else {
+                    // Scrolling up - show header
+                    mainHeader.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            });
+            
+            // Scroll to top functionality
+            scrollTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // ============================================
+            // INSTALL BUTTON FUNCTIONALITY
+            // ============================================
+            
+            // Install button click handler
+            installButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    currentApp = this.getAttribute('data-app');
+                    
+                    // Reset state
+                    adShown = false;
+                    secondsLeft = 5;
+                    
+                    // Show overlay immediately
+                    adOverlay.style.display = 'flex';
+                    loadingSection.style.display = 'block';
+                    downloadSection.style.display = 'none';
+                    countdownEl.textContent = `Starting in ${secondsLeft} seconds...`;
+                    
+                    // Start countdown
+                    startCountdown();
+                    
+                    // Open AdsTerar in new tab AFTER showing overlay
+                    setTimeout(() => {
+                        if (!adShown) {
+                            const adWindow = window.open(ADSTERAR_REDIRECT_LINK, '_blank');
+                            adShown = true;
+                            
+                            // Focus back on main window
+                            setTimeout(() => {
+                                if (adWindow) {
+                                    adWindow.blur();
+                                    window.focus();
+                                }
+                            }, 100);
+                        }
+                    }, 1000);
+                });
+            });
+            
+            // Enhanced countdown function
+            function startCountdown() {
+                clearInterval(countdownTimer);
+                
+                countdownTimer = setInterval(() => {
+                    secondsLeft--;
+                    
+                    if (secondsLeft > 0) {
+                        countdownEl.textContent = `Starting in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
+                    } else {
+                        clearInterval(countdownTimer);
+                        showDownloadSection();
+                    }
+                }, 1000);
+            }
+            
+            // Show download section with enhanced functionality
+            function showDownloadSection() {
+                loadingSection.style.display = 'none';
+                downloadSection.style.display = 'block';
+                
+                // Set download link and text
+                const downloadUrl = appDownloadLinks[currentApp];
+                const appName = appNames[currentApp];
+                
+                if (downloadUrl && downloadUrl !== 'YOUR_APP_DOWNLOAD_LINK') {
+                    downloadLink.href = downloadUrl;
+                    downloadLink.setAttribute('download', `${currentApp}-premium.apk`);
+                    downloadText.textContent = `Download ${appName}`;
+                    
+                    // Auto-start download after 2 seconds
+                    setTimeout(() => {
+                        triggerDownload(downloadUrl, `${currentApp}-premium.apk`);
+                    }, 2000);
+                } else {
+                    downloadText.textContent = 'Download Link Coming Soon';
+                    downloadLink.style.opacity = '0.6';
+                    downloadLink.style.cursor = 'not-allowed';
+                    downloadLink.onclick = (e) => {
+                        e.preventDefault();
+                        alert('Download link will be available soon!');
+                    };
+                }
+            }
+            
+            // Enhanced download trigger function
+            function triggerDownload(url, filename) {
+                try {
+                    // Method 1: Create invisible iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.src = url;
+                    document.body.appendChild(iframe);
+                    
+                    // Method 2: Create temporary link (for mobile support)
+                    setTimeout(() => {
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = filename;
+                        link.style.display = 'none';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }, 500);
+                    
+                    // Method 3: Direct window location (fallback)
+                    setTimeout(() => {
+                        if (url.startsWith('http')) {
+                            window.location.href = url;
+                        }
+                    }, 1000);
+                    
+                    console.log(`Download triggered for ${currentApp}: ${url}`);
+                } catch (error) {
+                    console.error('Download error:', error);
+                    // Show manual download button
+                    downloadLink.style.display = 'inline-flex';
+                }
+            }
+            
+            // Close overlay
+            closeAdBtn.addEventListener('click', function() {
+                adOverlay.style.display = 'none';
+                clearInterval(countdownTimer);
+            });
+            
+            // Close overlay when clicking outside
+            adOverlay.addEventListener('click', function(e) {
+                if (e.target === adOverlay) {
+                    adOverlay.style.display = 'none';
+                    clearInterval(countdownTimer);
+                }
+            });
+            
+            // ============================================
+            // SMOOTH SCROLLING FOR ANCHOR LINKS
+            // ============================================
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Calculate offset considering fixed header
+                        const headerHeight = mainHeader.offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // ============================================
+            // ENHANCED ANIMATIONS AND EFFECTS
+            // ============================================
+            
+            // Initialize Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animation
+            document.querySelectorAll('.app-card, .step-card, .ad-banner').forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Add animation classes
+            const style = document.createElement('style');
+            style.textContent = `
+                .app-card.animated {
+                    animation: fadeUp 0.6s ease forwards;
+                }
+                .step-card.animated {
+                    animation: fadeUp 0.6s ease forwards;
+                }
+                .ad-banner.animated {
+                    animation: fadeIn 0.6s ease forwards;
+                }
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Initialize ad rotation for placeholder text
+            const adPlaceholders = document.querySelectorAll('.ad-content p');
+            const adMessages = [
+                "Support our platform by viewing partner advertisements",
+                "Ads help us keep all apps free for everyone",
+                "Thank you for supporting independent developers",
+                "Premium experience, completely free"
+            ];
+            
+            let currentAdIndex = 0;
+            setInterval(() => {
+                adPlaceholders.forEach(placeholder => {
+                    if (placeholder.textContent.includes("This space is reserved")) {
+                        placeholder.textContent = adMessages[currentAdIndex];
+                    }
+                });
+                currentAdIndex = (currentAdIndex + 1) % adMessages.length;
+            }, 8000);
+            
+            // Prevent form submission if any
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                });
+            });
+            
+            // Initialize tooltips for buttons
+            installButtons.forEach(button => {
+                button.title = "Click to install (Watch ad first)";
+            });
+        });
+        
+        // Fallback for older browsers
+        if (!window.addEventListener) {
+            alert('Please update your browser for the best experience');
+        }
+    </script>
+</body>
+</html>
