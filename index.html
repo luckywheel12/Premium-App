@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Meta Tags for Preview -->
-    <title>Premium Apps Hub - Download Free Premium Apps</title>
-    <meta name="description" content="Download premium modified apps for free. YouTube Premium, Netflix Premium, Spotify Premium and more. No subscription required.">
+    <title>Premium Apps Hub - Download 100+ Free Premium Apps</title>
+    <meta name="description" content="Download premium modified apps for free. YouTube Premium, Netflix Premium, Spotify Premium, ChatGPT Plus and 100+ more apps. No subscription required.">
     
-    <!-- Open Graph / Facebook / WhatsApp / Telegram Preview -->
+    <!-- Open Graph / Social Media Preview -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://premiumappshub.com">
-    <meta property="og:title" content="Premium Apps Hub - 100% Free Premium Apps">
-    <meta property="og:description" content="Download all premium apps for free. YouTube, Netflix, Spotify, ChatGPT and more apps with all features unlocked.">
-    <meta property="og:image" content="https://i.ibb.co.com/your-image-link/preview-banner.jpg">
+    <meta property="og:title" content="Premium Apps Hub - 100+ Free Premium Apps">
+    <meta property="og:description" content="Download 100+ premium apps for free. All features unlocked, no subscription needed.">
+    <meta property="og:image" content="https://i.ibb.co.com/your-image/preview-banner.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome 6 (Professional Icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* ==================== CSS RESET ==================== */
+        /* ==================== GLOBAL STYLES ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -40,14 +40,18 @@
             --dark: #0f172a;
             --light: #f8fafc;
             --gray: #64748b;
+            --gray-light: #94a3b8;
             --border: #e2e8f0;
+            --shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 30px 60px -10px rgba(99, 102, 241, 0.3);
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea0a 0%, #764ba20a 100%), #f8fafc;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
         }
 
         .container {
@@ -58,8 +62,30 @@
 
         /* ==================== ANIMATIONS ==================== */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* ==================== HEADER ==================== */
@@ -71,6 +97,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
         }
 
         .header-content {
@@ -88,63 +115,113 @@
         .logo-icon {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 1.8rem;
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.3);
         }
 
         .logo-text h1 {
             font-size: 1.6rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 400;
         }
 
         .nav ul {
             display: flex;
             list-style: none;
-            gap: 12px;
+            gap: 8px;
         }
 
         .nav a {
             color: var(--dark);
             text-decoration: none;
             font-weight: 500;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 30px;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .nav a i {
+            font-size: 1rem;
         }
 
         .nav a:hover {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.3);
         }
 
         /* ==================== HERO SECTION ==================== */
         .hero {
             padding: 60px 0 40px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(79, 70, 229, 0.1));
+            color: var(--primary);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-badge i {
+            font-size: 1rem;
         }
 
         .hero h2 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #1e293b, #475569);
+            background: linear-gradient(135deg, var(--dark), #334155);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero h2 span {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .hero p {
@@ -154,24 +231,75 @@
             margin: 0 auto 30px;
         }
 
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: slideIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.1s; }
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.3s; }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .stat-number i {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         /* ==================== AD BANNER ==================== */
         .ad-banner {
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-            margin: 40px auto;
+            box-shadow: var(--shadow);
+            margin: 30px auto;
             max-width: 900px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .ad-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .ad-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 16px 24px;
+            padding: 14px 24px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .ad-header i {
+            font-size: 1.1rem;
         }
 
         .ad-content {
@@ -180,14 +308,67 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
         }
 
-        /* ==================== APPS SECTION ==================== */
-        .section-title {
+        /* ==================== CATEGORY TABS ==================== */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-btn i {
+            font-size: 1rem;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+        }
+
+        /* ==================== APPS GRID ==================== */
+        .section-header {
             text-align: center;
+            margin: 50px 0 30px;
+        }
+
+        .section-title {
             font-size: 2.2rem;
             font-weight: 700;
-            margin: 50px 0 30px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--dark), #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1rem;
         }
 
         .apps-grid {
@@ -199,19 +380,47 @@
 
         .app-card {
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 25px;
             text-align: center;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             transition: all 0.3s;
+            border: 1px solid var(--border);
             animation: fadeInUp 0.6s ease-out forwards;
             opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--danger));
+            transform: translateX(-100%);
+            transition: transform 0.6s;
         }
 
         .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px -10px rgba(102, 126, 234, 0.3);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
         }
+
+        .app-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .app-card:nth-child(1) { animation-delay: 0.1s; }
+        .app-card:nth-child(2) { animation-delay: 0.15s; }
+        .app-card:nth-child(3) { animation-delay: 0.2s; }
+        .app-card:nth-child(4) { animation-delay: 0.25s; }
+        .app-card:nth-child(5) { animation-delay: 0.3s; }
+        .app-card:nth-child(6) { animation-delay: 0.35s; }
+        .app-card:nth-child(7) { animation-delay: 0.4s; }
+        .app-card:nth-child(8) { animation-delay: 0.45s; }
 
         .app-icon {
             width: 90px;
@@ -223,40 +432,105 @@
             margin: 0 auto 20px;
             font-size: 2.5rem;
             color: white;
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
         }
 
-        /* App Icon Gradients */
-        .youtube { background: linear-gradient(135deg, #ff0000, #ff6b6b); }
-        .telegram { background: linear-gradient(135deg, #0088cc, #00bfff); }
-        .netflix { background: linear-gradient(135deg, #e50914, #ff4d4d); }
-        .spotify { background: linear-gradient(135deg, #1db954, #4cdf7e); }
-        .chatgpt { background: linear-gradient(135deg, #10a37f, #00b894); }
-        .midjourney { background: linear-gradient(135deg, #f97316, #fb923c); }
-        .capcut { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
-        .inshot { background: linear-gradient(135deg, #ff6b6b, #ff8e8e); }
-        .whatsapp { background: linear-gradient(135deg, #25d366, #5af78e); }
-        .imo { background: linear-gradient(135deg, #00bfa5, #00e6c3); }
+        .app-card:hover .app-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* App Icon Gradients - Professional Colors */
+        .youtube { background: linear-gradient(135deg, #ff0000, #cc0000); }
+        .telegram { background: linear-gradient(135deg, #0088cc, #006699); }
+        .netflix { background: linear-gradient(135deg, #e50914, #b20710); }
+        .spotify { background: linear-gradient(135deg, #1db954, #169c46); }
+        .chatgpt { background: linear-gradient(135deg, #10a37f, #0d8b6c); }
+        .midjourney { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .claude { background: linear-gradient(135deg, #6b46c1, #553c9a); }
+        .dalle { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+        .copilot { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .bard { background: linear-gradient(135deg, #4285f4, #3367d6); }
+        .perplexity { background: linear-gradient(135deg, #0891b2, #0e7490); }
+        .poe { background: linear-gradient(135deg, #e11d48, #be123c); }
+        .whatsapp { background: linear-gradient(135deg, #25d366, #20b358); }
+        .imo { background: linear-gradient(135deg, #00bfa5, #009688); }
+        .capcut { background: linear-gradient(135deg, #ff6b6b, #ff4757); }
+        .inshot { background: linear-gradient(135deg, #ff6b6b, #ff4757); }
+        .terabox { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        .moviebox { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .primevideo { background: linear-gradient(135deg, #00a8e1, #0078b3); }
+        .disney { background: linear-gradient(135deg, #113ccf, #0a2b99); }
+        .hbo { background: linear-gradient(135deg, #a51e36, #771526); }
+        .paramount { background: linear-gradient(135deg, #0066b3, #004080); }
+        .peacock { background: linear-gradient(135deg, #f9b81b, #d49500); }
+        .vudu { background: linear-gradient(135deg, #1e90ff, #0066cc); }
+        .canva { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .picsart { background: linear-gradient(135deg, #9333ea, #7e22ce); }
+        .lightroom { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        .photoshop { background: linear-gradient(135deg, #0891b2, #0e7490); }
+        .adobe { background: linear-gradient(135deg, #dc2626, #b91c1c); }
+        .office { background: linear-gradient(135deg, #d97706, #b45309); }
+        .wps { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .vlc { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .mxplayer { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .snaptube { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .vidmate { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+        .ucbrowser { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        .gcam { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .gboard { background: linear-gradient(135deg, #10b981, #059669); }
+        .solid { background: linear-gradient(135deg, #f97316, #ea580c); }
+        .x-plore { background: linear-gradient(135deg, #0891b2, #0e7490); }
+        .mixplorer { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .powertoys { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        .tasker { background: linear-gradient(135deg, #e11d48, #be123c); }
+        .nova { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+        .kwgt { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .zarchiver { background: linear-gradient(135deg, #f97316, #ea580c); }
 
         .app-card h3 {
             font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: var(--dark);
         }
 
         .app-card p {
             color: var(--gray);
             margin-bottom: 20px;
             font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .app-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            color: var(--gray-light);
+        }
+
+        .app-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .app-meta i {
+            font-size: 0.9rem;
+            color: var(--primary);
         }
 
         .install-btn {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
             border-radius: 12px;
             font-weight: 600;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
@@ -265,12 +539,127 @@
             gap: 8px;
         }
 
-        .install-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(102, 126, 234, 0.4);
+        .install-btn i {
+            font-size: 1rem;
         }
 
-        /* ==================== AD OVERLAY ==================== */
+        .install-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.4);
+        }
+
+        /* ==================== FEATURES SECTION ==================== */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(79, 70, 229, 0.1));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin: 60px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .cta h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn i {
+            font-size: 1rem;
+        }
+
+        /* ==================== AD OVERLAY MODAL ==================== */
         .ad-overlay {
             position: fixed;
             top: 0;
@@ -282,92 +671,166 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            backdrop-filter: blur(8px);
         }
 
         .ad-modal {
             background: white;
-            border-radius: 24px;
+            border-radius: 28px;
             width: 90%;
             max-width: 450px;
             overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            animation: modalPop 0.3s forwards;
+        }
+
+        @keyframes modalPop {
+            to {
+                transform: scale(1);
+            }
         }
 
         .modal-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 25px;
+            padding: 28px;
             text-align: center;
         }
 
         .modal-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .modal-header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
         .modal-content {
-            padding: 30px;
+            padding: 35px;
             text-align: center;
         }
 
+        .modal-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .countdown-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 25px 0;
+        }
+
         .countdown {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
-            color: #667eea;
-            margin: 20px 0;
-            padding: 15px;
-            background: #f1f5f9;
-            border-radius: 15px;
-            display: inline-block;
-            min-width: 100px;
+            color: var(--primary);
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
         .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #10b981, #059669);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--secondary), #059669);
             color: white;
-            padding: 14px 30px;
-            border-radius: 12px;
+            padding: 16px 36px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1rem;
             margin-top: 15px;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(16, 185, 129, 0.4);
+        }
+
+        .download-btn i {
+            font-size: 1.1rem;
         }
 
         .modal-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.2);
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             border: none;
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             font-size: 1.2rem;
             cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
         }
 
         /* ==================== FOOTER ==================== */
         .footer {
             background: var(--dark);
             color: white;
-            padding: 50px 0 20px;
-            margin-top: 60px;
-            border-radius: 30px 30px 0 0;
+            padding: 70px 0 30px;
+            margin-top: 80px;
+            border-radius: 40px 40px 0 0;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
         }
 
         .footer-column h4 {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        .footer-column p {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .footer-links {
@@ -375,35 +838,135 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
-            color: #94a3b8;
+            color: var(--gray-light);
             text-decoration: none;
-            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
         }
 
         .footer-links a:hover {
             color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            transform: translateY(-3px);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid #334155;
-            color: #94a3b8;
+            color: var(--gray-light);
             font-size: 0.9rem;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
         }
 
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+                text-align: center;
             }
-            
+
+            .nav ul {
+                justify-content: center;
+            }
+
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta {
+                padding: 40px 20px;
+            }
+
+            .cta h3 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .category-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .category-btn {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+
+            .countdown {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -419,12 +982,14 @@
                     </div>
                     <div class="logo-text">
                         <h1>Premium Apps Hub</h1>
+                        <p>100+ Free Premium Apps</p>
                     </div>
                 </div>
                 <nav class="nav">
                     <ul>
-                        <li><a href="#apps">Apps</a></li>
-                        <li><a href="#footer">About</a></li>
+                        <li><a href="#apps"><i class="fas fa-th-large"></i> Apps</a></li>
+                        <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
+                        <li><a href="#footer"><i class="fas fa-info-circle"></i> About</a></li>
                     </ul>
                 </nav>
             </div>
@@ -434,43 +999,162 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
+            <div class="hero-badge">
+                <i class="fas fa-crown"></i>
+                <span>100% Free Premium Apps</span>
+                <i class="fas fa-crown"></i>
+            </div>
             <h2>
                 <span>Premium Apps</span><br>
-                Completely Free
+                Completely Free For Everyone
             </h2>
-            <p>Download premium apps with all features unlocked. No subscription needed.</p>
+            <p>Download modified versions of your favorite apps with all premium features unlocked. No subscription, no payment, just free premium apps.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <i class="fas fa-mobile-alt"></i>
+                        100+
+                    </div>
+                    <div class="stat-label">Premium Apps</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <i class="fas fa-users"></i>
+                        500K+
+                    </div>
+                    <div class="stat-label">Happy Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">
+                        <i class="fas fa-download"></i>
+                        1M+
+                    </div>
+                    <div class="stat-label">Downloads</div>
+                </div>
+            </div>
 
-            <!-- Top Ad -->
+            <!-- Top Ad Banner -->
             <div class="ad-banner">
                 <div class="ad-header">
-                    <i class="fas fa-ad"></i> Advertisement
+                    <i class="fas fa-ad"></i>
+                    <span>Advertisement</span>
+                    <i class="fas fa-ad"></i>
                 </div>
                 <div class="ad-content">
+                   <script async="async" data-cfasync="false" src="https://pl28716606.effectivegatecpm.com/80efa1def2927dc28174f5bf6f87d38f/invoke.js"></script>
+<div id="container-80efa1def2927dc28174f5bf6f87d38f"></div>
                     <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Category Tabs -->
+    <div class="container">
+        <div class="category-tabs">
+            <button class="category-btn active" onclick="filterApps('all')">
+                <i class="fas fa-th-large"></i> All Apps
+            </button>
+            <button class="category-btn" onclick="filterApps('streaming')">
+                <i class="fas fa-play-circle"></i> Streaming
+            </button>
+            <button class="category-btn" onclick="filterApps('music')">
+                <i class="fas fa-music"></i> Music
+            </button>
+            <button class="category-btn" onclick="filterApps('ai')">
+                <i class="fas fa-robot"></i> AI Tools
+            </button>
+            <button class="category-btn" onclick="filterApps('social')">
+                <i class="fas fa-comments"></i> Social
+            </button>
+            <button class="category-btn" onclick="filterApps('editor')">
+                <i class="fas fa-pen-fancy"></i> Editors
+            </button>
+            <button class="category-btn" onclick="filterApps('tools')">
+                <i class="fas fa-tools"></i> Tools
+            </button>
+        </div>
+    </div>
+
     <!-- Apps Section -->
     <section id="apps">
         <div class="container">
-            <h2 class="section-title">Premium Apps</h2>
+            <div class="section-header">
+                <h2 class="section-title">Popular Premium Apps</h2>
+                <p class="section-subtitle">Most downloaded premium apps this month</p>
+            </div>
             <div class="apps-grid" id="appsGrid"></div>
+
+            <!-- Middle Ad Banner -->
+            <div class="ad-banner">
+                <div class="ad-header">
+                    <i class="fas fa-star"></i>
+                    <span>Sponsored Content</span>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="ad-content">
+                    
+                    <script async="async" data-cfasync="false" src="https://pl28716606.effectivegatecpm.com/80efa1def2927dc28174f5bf6f87d38f/invoke.js"></script>
+<div id="container-80efa1def2927dc28174f5bf6f87d38f"></div>
+                    <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Middle Ad -->
-    <div class="container">
-        <div class="ad-banner">
-            <div class="ad-header">
-                <i class="fas fa-star"></i> Sponsored
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Us</h2>
+                <p class="section-subtitle">Best platform for premium apps</p>
             </div>
-            <div class="ad-content">
-                <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>100% Safe</h4>
+                    <p>All apps are tested and verified. No viruses, no malware. Regular security checks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Fast Downloads</h4>
+                    <p>High-speed servers for instant downloads. Direct download links, no waiting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4>Regular Updates</h4>
+                    <p>Apps updated regularly with latest features. Always get the newest versions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Always here to help you with any issues. Quick response and solutions.</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h3>Ready to Enjoy Premium Apps?</h3>
+            <p>Start downloading your favorite premium apps for free right now. 100+ apps available.</p>
+            <a href="#apps" class="cta-btn">
+                <i class="fas fa-download"></i>
+                Browse All Apps
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer" id="footer">
@@ -478,126 +1162,782 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>Premium Apps Hub</h4>
-                    <p style="color: #94a3b8; font-size: 0.9rem;">Your trusted source for premium modified applications.</p>
+                    <p>Your trusted source for premium modified applications. All apps are tested, safe, and regularly updated.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#apps">All Apps</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#apps"><i class="fas fa-arrow-right"></i> All Apps</a></li>
+                        <li><a href="#features"><i class="fas fa-arrow-right"></i> Features</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Popular Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-play-circle"></i> Streaming Apps</a></li>
+                        <li><a href="#"><i class="fas fa-music"></i> Music Apps</a></li>
+                        <li><a href="#"><i class="fas fa-robot"></i> AI Tools</a></li>
+                        <li><a href="#"><i class="fas fa-pen-fancy"></i> Editors</a></li>
+                        <li><a href="#"><i class="fas fa-tools"></i> Utility Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Top Apps</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">YouTube Premium</a></li>
+                        <li><a href="#">Netflix Premium</a></li>
+                        <li><a href="#">Spotify Premium</a></li>
+                        <li><a href="#">ChatGPT Plus</a></li>
+                        <li><a href="#">CapCut Premium</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Premium Apps Hub. All rights reserved.</p>
+                <p>&copy; 2024 Premium Apps Hub. All rights reserved. | 100+ Free Premium Apps</p>
             </div>
         </div>
     </footer>
 
-    <!-- Bottom Ad -->
+    <!-- Bottom Ad Banner -->
     <div class="container">
         <div class="ad-banner">
             <div class="ad-header">
-                <i class="fas fa-bullhorn"></i> Featured
+                <i class="fas fa-bullhorn"></i>
+                <span>Featured Advertisement</span>
+                <i class="fas fa-bullhorn"></i>
             </div>
             <div class="ad-content">
+                
+               <script>
+  atOptions = {
+    'key' : 'dfc0991a954cd58da15711ad6202d4be',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/dfc0991a954cd58da15711ad6202d4be/invoke.js"></script>
+                
                 <script src="https://www.effectivegatecpm.com/rub6ahgwkm?key=3cd1f30148995a8b2a2e347ace457880"></script>
             </div>
         </div>
     </div>
 
-    <!-- Ad Overlay -->
+    <!-- Ad Overlay Modal -->
     <div class="ad-overlay" id="adOverlay">
         <div class="ad-modal">
             <div class="modal-header">
-                <h3>Please Wait</h3>
-                <p>Your download is being prepared</p>
+                <h3><i class="fas fa-gift"></i> You're Awesome!</h3>
+                <p>Please wait while we prepare your download</p>
             </div>
             <div class="modal-content">
                 <div id="loadingSection">
-                    <h4>Thank You!</h4>
-                    <div class="countdown" id="countdown">5</div>
-                    <p>Opening advertisement...</p>
+                    <h4>Thank You for Supporting Us!</h4>
+                    <div class="countdown-container">
+                        <div class="countdown" id="countdown">5</div>
+                        <p style="color: var(--gray);">Opening advertisement...</p>
+                    </div>
                 </div>
                 <div id="downloadSection" style="display: none;">
-                    <h4>✅ Download Ready!</h4>
+                    <h4><i class="fas fa-check-circle" style="color: var(--secondary);"></i> Download Ready!</h4>
+                    <p style="color: var(--gray); margin: 15px 0;">Click below to download your app</p>
                     <button class="download-btn" id="downloadBtn">
-                        <i class="fas fa-download"></i> Download Now
+                        <i class="fas fa-download"></i>
+                        Download Now
+                        <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
-            <button class="modal-close" id="closeAdBtn">×</button>
+            <button class="modal-close" id="closeAdBtn">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
     </div>
 
     <script>
-        // ==================== APP CONFIGURATION ====================
+        // ==================== COMPLETE APP DATABASE ====================
         const APPS = [
-            {
-                id: 'youtube',
-                name: 'YouTube Premium',
-                icon: 'fab fa-youtube',
-                iconClass: 'youtube',
-                description: 'Ad-free videos, background play, offline downloads',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
-            },
-            {
-                id: 'telegram',
-                name: 'Telegram Premium',
-                icon: 'fab fa-telegram',
-                iconClass: 'telegram',
-                description: '4GB file upload, faster downloads',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
-            },
+            // === STREAMING APPS ===
             {
                 id: 'netflix',
                 name: 'Netflix Premium',
                 icon: 'fas fa-film',
                 iconClass: 'netflix',
-                description: '4K streaming, all content unlocked',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
+                description: '4K streaming, all content unlocked, multiple screens, download movies',
+                category: 'streaming',
+                size: '18.5 MB',
+                version: 'v8.1.2',
+                downloadLink: 'YOUR_NETFLIX_LINK'
             },
+            {
+                id: 'moviebox',
+                name: 'MovieBox Pro',
+                icon: 'fas fa-play-circle',
+                iconClass: 'moviebox',
+                description: 'Free movies & shows, no ads, premium quality, download option',
+                category: 'streaming',
+                size: '15.2 MB',
+                version: 'v5.3.1',
+                downloadLink: 'YOUR_MOVIEBOX_LINK'
+            },
+            {
+                id: 'primevideo',
+                name: 'Amazon Prime Video',
+                icon: 'fab fa-amazon',
+                iconClass: 'primevideo',
+                description: 'All content unlocked, 4K streaming, download movies',
+                category: 'streaming',
+                size: '22.1 MB',
+                version: 'v3.0.8',
+                downloadLink: 'YOUR_PRIME_LINK'
+            },
+            {
+                id: 'disney',
+                name: 'Disney+ Hotstar',
+                icon: 'fab fa-disney',
+                iconClass: 'disney',
+                description: 'All premium content unlocked, 4K streaming',
+                category: 'streaming',
+                size: '19.3 MB',
+                version: 'v2.5.0',
+                downloadLink: 'YOUR_DISNEY_LINK'
+            },
+            {
+                id: 'hbo',
+                name: 'HBO Max',
+                icon: 'fas fa-tv',
+                iconClass: 'hbo',
+                description: 'All premium content, 4K streaming, download option',
+                category: 'streaming',
+                size: '21.7 MB',
+                version: 'v2.8.3',
+                downloadLink: 'YOUR_HBO_LINK'
+            },
+            {
+                id: 'paramount',
+                name: 'Paramount Plus',
+                icon: 'fas fa-star',
+                iconClass: 'paramount',
+                description: 'Premium content unlocked, live TV, downloads',
+                category: 'streaming',
+                size: '20.4 MB',
+                version: 'v4.1.2',
+                downloadLink: 'YOUR_PARAMOUNT_LINK'
+            },
+            {
+                id: 'peacock',
+                name: 'Peacock Premium',
+                icon: 'fas fa-feather',
+                iconClass: 'peacock',
+                description: 'All premium content unlocked, live sports',
+                category: 'streaming',
+                size: '17.8 MB',
+                version: 'v3.2.1',
+                downloadLink: 'YOUR_PEACOCK_LINK'
+            },
+            {
+                id: 'vudu',
+                name: 'Vudu',
+                icon: 'fas fa-play',
+                iconClass: 'vudu',
+                description: 'Movies & TV shows, 4K streaming',
+                category: 'streaming',
+                size: '16.9 MB',
+                version: 'v6.0.4',
+                downloadLink: 'YOUR_VUDU_LINK'
+            },
+
+            // === MUSIC APPS ===
             {
                 id: 'spotify',
                 name: 'Spotify Premium',
                 icon: 'fab fa-spotify',
                 iconClass: 'spotify',
-                description: 'Ad-free music, unlimited skips',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
+                description: 'Ad-free music, unlimited skips, offline listening, high quality audio',
+                category: 'music',
+                size: '24.3 MB',
+                version: 'v8.7.2',
+                downloadLink: 'YOUR_SPOTIFY_LINK'
             },
             {
+                id: 'youtube-music',
+                name: 'YouTube Music',
+                icon: 'fab fa-youtube',
+                iconClass: 'youtube',
+                description: 'Ad-free music, background play, offline downloads',
+                category: 'music',
+                size: '23.1 MB',
+                version: 'v5.2.0',
+                downloadLink: 'YOUR_YTMUSIC_LINK'
+            },
+            {
+                id: 'soundcloud',
+                name: 'SoundCloud Go',
+                icon: 'fab fa-soundcloud',
+                iconClass: 'soundcloud',
+                description: 'Ad-free, offline listening, unlimited skips',
+                category: 'music',
+                size: '19.5 MB',
+                version: 'v6.1.3',
+                downloadLink: 'YOUR_SOUNDCLOUD_LINK'
+            },
+            {
+                id: 'tidal',
+                name: 'Tidal HiFi',
+                icon: 'fas fa-wave-square',
+                iconClass: 'tidal',
+                description: 'HiFi audio quality, exclusive content, offline',
+                category: 'music',
+                size: '26.2 MB',
+                version: 'v2.8.1',
+                downloadLink: 'YOUR_TIDAL_LINK'
+            },
+            {
+                id: 'deezer',
+                name: 'Deezer Premium',
+                icon: 'fab fa-deezer',
+                iconClass: 'deezer',
+                description: 'Ad-free, offline, high quality audio',
+                category: 'music',
+                size: '20.7 MB',
+                version: 'v7.0.4',
+                downloadLink: 'YOUR_DEEZER_LINK'
+            },
+            {
+                id: 'pandora',
+                name: 'Pandora Plus',
+                icon: 'fas fa-music',
+                iconClass: 'pandora',
+                description: 'Ad-free radio, offline listening',
+                category: 'music',
+                size: '18.9 MB',
+                version: 'v5.2.1',
+                downloadLink: 'YOUR_PANDORA_LINK'
+            },
+
+            // === AI APPS ===
+            {
                 id: 'chatgpt',
-                name: 'ChatGPT Premium',
+                name: 'ChatGPT Plus',
                 icon: 'fas fa-robot',
                 iconClass: 'chatgpt',
-                description: 'GPT-4 access, faster responses',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
+                description: 'GPT-4 access, faster responses, priority support',
+                category: 'ai',
+                size: '32.1 MB',
+                version: 'v1.2.3',
+                downloadLink: 'YOUR_CHATGPT_LINK'
             },
+            {
+                id: 'midjourney',
+                name: 'Midjourney Pro',
+                icon: 'fas fa-paint-brush',
+                iconClass: 'midjourney',
+                description: 'AI image generation, unlimited creations, fast mode',
+                category: 'ai',
+                size: '28.4 MB',
+                version: 'v5.0.1',
+                downloadLink: 'YOUR_MIDJOURNEY_LINK'
+            },
+            {
+                id: 'claude',
+                name: 'Claude AI Pro',
+                icon: 'fas fa-brain',
+                iconClass: 'claude',
+                description: 'Advanced AI assistant, 100K context, file upload',
+                category: 'ai',
+                size: '29.6 MB',
+                version: 'v2.1.0',
+                downloadLink: 'YOUR_CLAUDE_LINK'
+            },
+            {
+                id: 'dalle',
+                name: 'DALL-E 3 Pro',
+                icon: 'fas fa-image',
+                iconClass: 'dalle',
+                description: 'AI image generation, high resolution, unlimited',
+                category: 'ai',
+                size: '27.8 MB',
+                version: 'v3.2.1',
+                downloadLink: 'YOUR_DALLE_LINK'
+            },
+            {
+                id: 'copilot',
+                name: 'GitHub Copilot',
+                icon: 'fas fa-code',
+                iconClass: 'copilot',
+                description: 'AI pair programmer, code completion, suggestions',
+                category: 'ai',
+                size: '31.2 MB',
+                version: 'v1.5.0',
+                downloadLink: 'YOUR_COPILOT_LINK'
+            },
+            {
+                id: 'bard',
+                name: 'Google Bard Advanced',
+                icon: 'fab fa-google',
+                iconClass: 'bard',
+                description: 'Google AI assistant, latest models',
+                category: 'ai',
+                size: '30.3 MB',
+                version: 'v2.0.2',
+                downloadLink: 'YOUR_BARD_LINK'
+            },
+            {
+                id: 'perplexity',
+                name: 'Perplexity Pro',
+                icon: 'fas fa-search',
+                iconClass: 'perplexity',
+                description: 'AI search engine, unlimited searches, file upload',
+                category: 'ai',
+                size: '26.5 MB',
+                version: 'v3.1.0',
+                downloadLink: 'YOUR_PERPLEXITY_LINK'
+            },
+            {
+                id: 'poe',
+                name: 'Poe Premium',
+                icon: 'fas fa-comment',
+                iconClass: 'poe',
+                description: 'Multiple AI bots, GPT-4, Claude, unlimited messages',
+                category: 'ai',
+                size: '25.9 MB',
+                version: 'v2.4.1',
+                downloadLink: 'YOUR_POE_LINK'
+            },
+
+            // === SOCIAL APPS ===
+            {
+                id: 'telegram',
+                name: 'Telegram Premium',
+                icon: 'fab fa-telegram',
+                iconClass: 'telegram',
+                description: '4GB file upload, faster downloads, exclusive features',
+                category: 'social',
+                size: '34.2 MB',
+                version: 'v9.6.1',
+                downloadLink: 'YOUR_TELEGRAM_LINK'
+            },
+            {
+                id: 'whatsapp',
+                name: 'WhatsApp Plus',
+                icon: 'fab fa-whatsapp',
+                iconClass: 'whatsapp',
+                description: 'Custom themes, privacy options, increased limits',
+                category: 'social',
+                size: '35.7 MB',
+                version: 'v2.23.1',
+                downloadLink: 'YOUR_WHATSAPP_LINK'
+            },
+            {
+                id: 'imo',
+                name: 'IMO Premium',
+                icon: 'fas fa-video',
+                iconClass: 'imo',
+                description: 'HD video calls, no ads, exclusive stickers',
+                category: 'social',
+                size: '29.4 MB',
+                version: 'v12.3.0',
+                downloadLink: 'YOUR_IMO_LINK'
+            },
+            {
+                id: 'facebook',
+                name: 'Facebook Premium',
+                icon: 'fab fa-facebook',
+                iconClass: 'facebook',
+                description: 'No ads, enhanced privacy, extra features',
+                category: 'social',
+                size: '38.1 MB',
+                version: 'v4.5.2',
+                downloadLink: 'YOUR_FACEBOOK_LINK'
+            },
+            {
+                id: 'instagram',
+                name: 'Instagram Plus',
+                icon: 'fab fa-instagram',
+                iconClass: 'instagram',
+                description: 'Download posts, stories, no ads, privacy',
+                category: 'social',
+                size: '36.8 MB',
+                version: 'v3.2.1',
+                downloadLink: 'YOUR_INSTAGRAM_LINK'
+            },
+            {
+                id: 'twitter',
+                name: 'Twitter Premium',
+                icon: 'fab fa-twitter',
+                iconClass: 'twitter',
+                description: 'No ads, long tweets, edit button',
+                category: 'social',
+                size: '32.5 MB',
+                version: 'v9.2.3',
+                downloadLink: 'YOUR_TWITTER_LINK'
+            },
+            {
+                id: 'snapchat',
+                name: 'Snapchat Plus',
+                icon: 'fab fa-snapchat',
+                iconClass: 'snapchat',
+                description: 'Extra features, no ads, custom filters',
+                category: 'social',
+                size: '33.9 MB',
+                version: 'v12.1.0',
+                downloadLink: 'YOUR_SNAPCHAT_LINK'
+            },
+            {
+                id: 'tiktok',
+                name: 'TikTok Premium',
+                icon: 'fab fa-tiktok',
+                iconClass: 'tiktok',
+                description: 'No ads, download videos, analytics',
+                category: 'social',
+                size: '37.2 MB',
+                version: 'v3.4.1',
+                downloadLink: 'YOUR_TIKTOK_LINK'
+            },
+
+            // === VIDEO EDITING APPS ===
             {
                 id: 'capcut',
                 name: 'CapCut Premium',
                 icon: 'fas fa-film',
                 iconClass: 'capcut',
-                description: 'No watermark, 4K export',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
+                description: 'No watermark, 4K export, all premium features',
+                category: 'editor',
+                size: '42.3 MB',
+                version: 'v10.2.1',
+                downloadLink: 'YOUR_CAPCUT_LINK'
             },
             {
                 id: 'inshot',
                 name: 'InShot Pro',
                 icon: 'fas fa-cut',
                 iconClass: 'inshot',
-                description: 'Professional video editor',
-                downloadLink: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID' // আপনার লিংক দিন
+                description: 'No watermark, professional video editor',
+                category: 'editor',
+                size: '39.7 MB',
+                version: 'v1.9.0',
+                downloadLink: 'YOUR_INSHOT_LINK'
+            },
+            {
+                id: 'kineMaster',
+                name: 'KineMaster Pro',
+                icon: 'fas fa-film',
+                iconClass: 'kinemaster',
+                description: 'No watermark, all assets unlocked',
+                category: 'editor',
+                size: '45.1 MB',
+                version: 'v6.2.3',
+                downloadLink: 'YOUR_KINEMASTER_LINK'
+            },
+            {
+                id: 'alight',
+                name: 'Alight Motion Pro',
+                icon: 'fas fa-magic',
+                iconClass: 'alight',
+                description: 'No watermark, all effects unlocked',
+                category: 'editor',
+                size: '41.5 MB',
+                version: 'v4.1.2',
+                downloadLink: 'YOUR_ALIGHT_LINK'
+            },
+            {
+                id: 'filmora',
+                name: 'FilmoraGo Premium',
+                icon: 'fas fa-video',
+                iconClass: 'filmora',
+                description: 'No watermark, all features unlocked',
+                category: 'editor',
+                size: '43.8 MB',
+                version: 'v9.3.0',
+                downloadLink: 'YOUR_FILMORA_LINK'
+            },
+
+            // === PHOTO EDITING APPS ===
+            {
+                id: 'lightroom',
+                name: 'Lightroom Premium',
+                icon: 'fas fa-camera-retro',
+                iconClass: 'lightroom',
+                description: 'All premium presets, advanced editing tools',
+                category: 'editor',
+                size: '47.2 MB',
+                version: 'v8.1.0',
+                downloadLink: 'YOUR_LIGHTROOM_LINK'
+            },
+            {
+                id: 'photoshop',
+                name: 'Photoshop Express',
+                icon: 'fas fa-edit',
+                iconClass: 'photoshop',
+                description: 'All premium features, filters, effects',
+                category: 'editor',
+                size: '48.5 MB',
+                version: 'v7.3.1',
+                downloadLink: 'YOUR_PHOTOSHOP_LINK'
+            },
+            {
+                id: 'picsart',
+                name: 'Picsart Gold',
+                icon: 'fas fa-camera',
+                iconClass: 'picsart',
+                description: 'All premium tools, stickers, effects',
+                category: 'editor',
+                size: '44.6 MB',
+                version: 'v20.1.0',
+                downloadLink: 'YOUR_PICSART_LINK'
+            },
+            {
+                id: 'canva',
+                name: 'Canva Pro',
+                icon: 'fas fa-paint-brush',
+                iconClass: 'canva',
+                description: 'All premium templates, elements, features',
+                category: 'editor',
+                size: '46.3 MB',
+                version: 'v12.5.2',
+                downloadLink: 'YOUR_CANVA_LINK'
+            },
+            {
+                id: 'adobe',
+                name: 'Adobe Express',
+                icon: 'fab fa-adobe',
+                iconClass: 'adobe',
+                description: 'All premium features, templates',
+                category: 'editor',
+                size: '49.1 MB',
+                version: 'v6.2.0',
+                downloadLink: 'YOUR_ADOBE_LINK'
+            },
+
+            // === OFFICE APPS ===
+            {
+                id: 'office',
+                name: 'Microsoft Office',
+                icon: 'fas fa-file-word',
+                iconClass: 'office',
+                description: 'All premium features, no subscription',
+                category: 'tools',
+                size: '52.3 MB',
+                version: 'v16.0.1',
+                downloadLink: 'YOUR_OFFICE_LINK'
+            },
+            {
+                id: 'wps',
+                name: 'WPS Office Premium',
+                icon: 'fas fa-file-alt',
+                iconClass: 'wps',
+                description: 'All premium features, PDF tools',
+                category: 'tools',
+                size: '50.7 MB',
+                version: 'v18.2.0',
+                downloadLink: 'YOUR_WPS_LINK'
+            },
+            {
+                id: 'adobe-pdf',
+                name: 'Adobe Acrobat Pro',
+                icon: 'fas fa-file-pdf',
+                iconClass: 'adobe',
+                description: 'PDF editor, converter, all features',
+                category: 'tools',
+                size: '51.4 MB',
+                version: 'v23.1.0',
+                downloadLink: 'YOUR_ADOBE_PDF_LINK'
+            },
+
+            // === UTILITY APPS ===
+            {
+                id: 'vlc',
+                name: 'VLC Media Player',
+                icon: 'fas fa-play',
+                iconClass: 'vlc',
+                description: 'All format player, premium features',
+                category: 'tools',
+                size: '28.6 MB',
+                version: 'v3.5.4',
+                downloadLink: 'YOUR_VLC_LINK'
+            },
+            {
+                id: 'mxplayer',
+                name: 'MX Player Pro',
+                icon: 'fas fa-play',
+                iconClass: 'mxplayer',
+                description: 'No ads, hardware acceleration',
+                category: 'tools',
+                size: '27.9 MB',
+                version: 'v1.46.2',
+                downloadLink: 'YOUR_MXPLAYER_LINK'
+            },
+            {
+                id: 'snaptube',
+                name: 'Snaptube Premium',
+                icon: 'fas fa-download',
+                iconClass: 'snaptube',
+                description: 'No ads, unlimited downloads, high speed',
+                category: 'tools',
+                size: '25.3 MB',
+                version: 'v6.2.1',
+                downloadLink: 'YOUR_SNAPTUBE_LINK'
+            },
+            {
+                id: 'vidmate',
+                name: 'VidMate Premium',
+                icon: 'fas fa-download',
+                iconClass: 'vidmate',
+                description: 'No ads, unlimited downloads',
+                category: 'tools',
+                size: '24.8 MB',
+                version: 'v4.5.2',
+                downloadLink: 'YOUR_VIDMATE_LINK'
+            },
+            {
+                id: 'ucbrowser',
+                name: 'UC Browser Pro',
+                icon: 'fas fa-globe',
+                iconClass: 'ucbrowser',
+                description: 'No ads, fast browsing, download manager',
+                category: 'tools',
+                size: '32.1 MB',
+                version: 'v13.0.2',
+                downloadLink: 'YOUR_UC_LINK'
+            },
+            {
+                id: 'gcam',
+                name: 'Google Camera',
+                icon: 'fas fa-camera',
+                iconClass: 'gcam',
+                description: 'All features unlocked, HDR+, Night Sight',
+                category: 'tools',
+                size: '35.2 MB',
+                version: 'v8.7.0',
+                downloadLink: 'YOUR_GCAM_LINK'
+            },
+            {
+                id: 'gboard',
+                name: 'Gboard Premium',
+                icon: 'fas fa-keyboard',
+                iconClass: 'gboard',
+                description: 'All themes, features unlocked',
+                category: 'tools',
+                size: '22.5 MB',
+                version: 'v12.4.1',
+                downloadLink: 'YOUR_GBOARD_LINK'
+            },
+            {
+                id: 'solid',
+                name: 'Solid Explorer',
+                icon: 'fas fa-folder',
+                iconClass: 'solid',
+                description: 'Premium file manager, all features',
+                category: 'tools',
+                size: '19.8 MB',
+                version: 'v2.8.2',
+                downloadLink: 'YOUR_SOLID_LINK'
+            },
+            {
+                id: 'x-plore',
+                name: 'X-plore File Manager',
+                icon: 'fas fa-folder-open',
+                iconClass: 'x-plore',
+                description: 'Premium features, root access',
+                category: 'tools',
+                size: '18.4 MB',
+                version: 'v4.3.1',
+                downloadLink: 'YOUR_XPLORE_LINK'
+            },
+            {
+                id: 'mixplorer',
+                name: 'MiXplorer',
+                icon: 'fas fa-folder-tree',
+                iconClass: 'mixplorer',
+                description: 'Premium file manager, all add-ons',
+                category: 'tools',
+                size: '17.6 MB',
+                version: 'v6.5.0',
+                downloadLink: 'YOUR_MIXPLORER_LINK'
+            },
+            {
+                id: 'powertoys',
+                name: 'PowerToys',
+                icon: 'fas fa-toolbox',
+                iconClass: 'powertoys',
+                description: 'All utilities, FancyZones, PowerRename',
+                category: 'tools',
+                size: '29.3 MB',
+                version: 'v0.7.2',
+                downloadLink: 'YOUR_POWERTOYS_LINK'
+            },
+            {
+                id: 'tasker',
+                name: 'Tasker',
+                icon: 'fas fa-tasks',
+                iconClass: 'tasker',
+                description: 'Automation tool, all features',
+                category: 'tools',
+                size: '21.7 MB',
+                version: 'v6.1.0',
+                downloadLink: 'YOUR_TASKER_LINK'
+            },
+            {
+                id: 'nova',
+                name: 'Nova Launcher Prime',
+                icon: 'fas fa-grid-2',
+                iconClass: 'nova',
+                description: 'Custom launcher, all features',
+                category: 'tools',
+                size: '20.3 MB',
+                version: 'v8.0.2',
+                downloadLink: 'YOUR_NOVA_LINK'
+            },
+            {
+                id: 'kwgt',
+                name: 'KWGT Pro',
+                icon: 'fas fa-clock',
+                iconClass: 'kwgt',
+                description: 'Widget maker, all features',
+                category: 'tools',
+                size: '16.9 MB',
+                version: 'v3.7.0',
+                downloadLink: 'YOUR_KWGT_LINK'
+            },
+            {
+                id: 'zarchiver',
+                name: 'ZArchiver Pro',
+                icon: 'fas fa-file-archive',
+                iconClass: 'zarchiver',
+                description: 'Archive manager, all formats',
+                category: 'tools',
+                size: '15.2 MB',
+                version: 'v1.0.9',
+                downloadLink: 'YOUR_ZARCHIVER_LINK'
             }
         ];
 
+        // ==================== CURRENT FILTER ====================
+        let currentFilter = 'all';
+
         // ==================== RENDER APPS ====================
-        function renderApps() {
+        function renderApps(filter = 'all') {
             const grid = document.getElementById('appsGrid');
             if (!grid) return;
 
+            let filteredApps = APPS;
+            if (filter !== 'all') {
+                filteredApps = APPS.filter(app => app.category === filter);
+            }
+
             let html = '';
-            APPS.forEach(app => {
+            filteredApps.forEach(app => {
                 html += `
                     <div class="app-card">
                         <div class="app-icon ${app.iconClass}">
@@ -605,6 +1945,10 @@
                         </div>
                         <h3>${app.name}</h3>
                         <p>${app.description}</p>
+                        <div class="app-meta">
+                            <span><i class="fas fa-database"></i> ${app.size}</span>
+                            <span><i class="fas fa-code-branch"></i> ${app.version}</span>
+                        </div>
                         <button class="install-btn" onclick="openAdOverlay('${app.id}')">
                             <i class="fas fa-download"></i> Install Now
                         </button>
@@ -612,6 +1956,19 @@
                 `;
             });
             grid.innerHTML = html;
+        }
+
+        // ==================== FILTER APPS ====================
+        function filterApps(category) {
+            currentFilter = category;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            renderApps(category);
         }
 
         // ==================== AD OVERLAY FUNCTIONS ====================
@@ -670,9 +2027,26 @@
             if (timer) clearInterval(timer);
         }
 
+        // ==================== SMOOTH SCROLL ====================
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
         // ==================== INITIALIZE ====================
         document.addEventListener('DOMContentLoaded', function() {
             renderApps();
+            setupSmoothScroll();
             
             // Close button
             document.getElementById('closeAdBtn').onclick = closeOverlay;
@@ -683,8 +2057,8 @@
             };
         });
     </script>
-
-
+    
     <script src="https://pl28716588.effectivegatecpm.com/bd/d2/f6/bdd2f6aa9b2871d53171c67ed6783b32.js"></script>
+    
 </body>
 </html>
